@@ -5,6 +5,10 @@ status = Status()
 # Displays clock like this:
 # Tue 30 Jul 11:59:46 PM KW31
 #                          ^-- calendar week
+status.register("shell",
+    command="setxkbmap -query | awk '/layout/{print $2}'",
+    format="🔠 {output}",)
+
 status.register("clock",
     format="[KW%V] %a %-d %b %X",)
 
